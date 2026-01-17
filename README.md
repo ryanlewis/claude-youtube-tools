@@ -1,12 +1,13 @@
-# YouTube Summarizer Plugin
+# YouTube Tools Plugin
 
-A Claude Code plugin that summarizes YouTube videos by extracting transcripts and providing AI-generated overviews.
+A Claude Code plugin for working with YouTube videos - summarize content, download videos/audio, and analyze comment sentiment.
 
 ## Features
 
-- Extract transcripts/subtitles from YouTube videos using yt-dlp
-- Generate concise summaries of video content
-- Support for custom instructions (bullet points, different styles, languages, etc.)
+- **Summarize videos**: Extract transcripts and generate AI-powered summaries with custom styling
+- **Download videos**: Save videos in your preferred quality (best, 1080p, 720p, 480p)
+- **Download audio**: Extract audio as MP3 with embedded cover art
+- **Comment analysis**: Fetch top comments and get AI-generated sentiment analysis
 - Auto-installs yt-dlp if not present
 
 ## Installation
@@ -19,32 +20,67 @@ claude --plugin-dir /path/to/claude-youtube-tools
 
 ## Usage
 
+### Summarize a Video
+
 ```
 /youtube-tools:summarize <youtube-url> [custom instructions]
 ```
 
-### Examples
-
-Basic summary:
+**Examples:**
 ```
 /youtube-tools:summarize https://www.youtube.com/watch?v=dQw4w9WgXcQ
-```
-
-With custom instructions:
-```
 /youtube-tools:summarize https://youtu.be/dQw4w9WgXcQ in bullet points
 /youtube-tools:summarize https://youtu.be/dQw4w9WgXcQ as if explaining to a 5 year old
-/youtube-tools:summarize https://youtu.be/dQw4w9WgXcQ in formal academic language
-/youtube-tools:summarize in pirate speak https://youtu.be/dQw4w9WgXcQ
-/youtube-tools:summarize give me bullet points for https://youtu.be/dQw4w9WgXcQ
+```
+
+### Download Video
+
+```
+/youtube-tools:download-video <youtube-url>
+```
+
+Downloads a YouTube video to the current directory. You'll be prompted to select a quality (best, 1080p, 720p, 480p).
+
+**Example:**
+```
+/youtube-tools:download-video https://www.youtube.com/watch?v=dQw4w9WgXcQ
+```
+
+### Download Audio
+
+```
+/youtube-tools:download-audio <youtube-url>
+```
+
+Extracts audio from a YouTube video and saves it as MP3 with the video thumbnail as cover art. Falls back to native format (m4a/webm) if ffmpeg is not installed.
+
+**Example:**
+```
+/youtube-tools:download-audio https://www.youtube.com/watch?v=dQw4w9WgXcQ
+```
+
+### Comment Sentiment Analysis
+
+```
+/youtube-tools:comments <youtube-url>
+```
+
+Fetches the top 100 comments from a video and provides AI-generated sentiment analysis including:
+- Overall sentiment (positive/negative/mixed)
+- Common themes and topics
+- Notable/representative comments
+- Engagement quality assessment
+
+**Example:**
+```
+/youtube-tools:comments https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ```
 
 ## How It Works
 
 1. You provide a YouTube URL and optional instructions
-2. The plugin extracts the video transcript using yt-dlp
-3. Claude analyzes the transcript and generates a summary
-4. If you provided custom instructions, the summary follows your requested style
+2. The plugin uses yt-dlp to fetch transcripts, download media, or retrieve comments
+3. Claude processes the data and provides summaries, analysis, or saves files to disk
 
 ## Prerequisites
 
@@ -55,10 +91,10 @@ The plugin will run yt-dlp via uvx/pipx, or auto-install via brew/winget/scoop.
 
 ## Limitations
 
-- Only works with videos that have transcripts/subtitles available
-- Single videos only (no playlist support)
-- Summary quality depends on transcript accuracy
-- Videos without captions cannot be summarized
+- **Summarize**: Only works with videos that have transcripts/subtitles available
+- **Download**: Single videos only (no playlist support)
+- **Audio**: MP3 conversion requires ffmpeg (falls back to native format otherwise)
+- **Comments**: Only fetches top 100 comments; videos with disabled comments will fail
 
 ## Troubleshooting
 
@@ -95,6 +131,27 @@ Make sure you're using a full YouTube URL:
 - `https://www.youtube.com/watch?v=VIDEO_ID`
 - `https://youtu.be/VIDEO_ID`
 - `https://www.youtube.com/shorts/VIDEO_ID`
+
+### Audio saved as m4a/webm instead of MP3
+
+Install ffmpeg to enable MP3 conversion:
+```bash
+# macOS
+brew install ffmpeg
+
+# Ubuntu/Debian
+sudo apt install ffmpeg
+
+# Windows (winget)
+winget install ffmpeg
+
+# Windows (scoop)
+scoop install ffmpeg
+```
+
+### "Comments are disabled" or no comments found
+
+The video has comments disabled by the uploader. This cannot be bypassed.
 
 ## License
 

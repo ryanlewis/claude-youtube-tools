@@ -1,11 +1,11 @@
 {
   "name": "youtube-tools",
   "version": "1.0.0",
-  "description": "Summarize YouTube videos by extracting and analyzing transcripts",
+  "description": "YouTube toolkit for summarizing videos, downloading media, and analyzing comments",
   "author": {
     "name": "Ryan Lewis"
   },
   "repository": "https://github.com/ryanlewis/claude-youtube-tools",
   "license": "MIT",
-  "keywords": ["youtube", "summarizer", "transcript", "video"]
+  "keywords": ["youtube", "summarizer", "transcript", "video", "download", "audio", "comments"]
 }
