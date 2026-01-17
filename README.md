@@ -1,4 +1,4 @@
-# YouTube Tools Plugin
+# YouTube Tools Plugin for Claude Code
 
 A Claude Code plugin for working with YouTube videos - summarize content, download videos/audio, and analyze comment sentiment.
 
@@ -11,6 +11,14 @@ A Claude Code plugin for working with YouTube videos - summarize content, downlo
 - Auto-installs yt-dlp if not present
 
 ## Installation
+
+### From My Plugin Marketplace
+
+Install from [my Claude Code plugin marketplace](https://github.com/ryanlewis/claude-plugins):
+
+```
+/plugin install youtube-tools@github.com/ryanlewis/claude-plugins
+```
 
 ### Local Development
 
