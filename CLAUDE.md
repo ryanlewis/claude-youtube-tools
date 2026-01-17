@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a Claude Code plugin that summarizes YouTube videos by extracting transcripts via yt-dlp and generating AI summaries. The plugin exposes a `/youtube-tools:summarize-youtube` slash command.
+This is a Claude Code plugin that summarizes YouTube videos by extracting transcripts via yt-dlp and generating AI summaries. The plugin exposes a `/youtube-tools:summarize` slash command.
 
 ## Testing the Plugin
 
@@ -15,7 +15,7 @@ claude --plugin-dir /path/to/claude-youtube-tools
 
 Then test with:
 ```
-/youtube-tools:summarize-youtube https://www.youtube.com/watch?v=VIDEO_ID
+/youtube-tools:summarize https://www.youtube.com/watch?v=VIDEO_ID
 ```
 
 Test the transcript fetcher directly:
@@ -30,7 +30,7 @@ bash scripts/fetch-transcript.sh "https://www.youtube.com/watch?v=VIDEO_ID"
   plugin.json              # Plugin manifest (name, version, metadata)
 
 commands/
-  summarize-youtube.md     # Skill definition with YAML frontmatter
+  summarize.md             # Skill definition with YAML frontmatter
                            # Uses $ARGUMENTS for user input, $CLAUDE_PLUGIN_ROOT for paths
 
 scripts/

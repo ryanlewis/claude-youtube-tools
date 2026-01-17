@@ -20,23 +20,23 @@ claude --plugin-dir /path/to/claude-youtube-tools
 ## Usage
 
 ```
-/summarize-youtube <youtube-url> [custom instructions]
+/youtube-tools:summarize <youtube-url> [custom instructions]
 ```
 
 ### Examples
 
 Basic summary:
 ```
-/summarize-youtube https://www.youtube.com/watch?v=dQw4w9WgXcQ
+/youtube-tools:summarize https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ```
 
 With custom instructions:
 ```
-/summarize-youtube https://youtu.be/dQw4w9WgXcQ in bullet points
-/summarize-youtube https://youtu.be/dQw4w9WgXcQ as if explaining to a 5 year old
-/summarize-youtube https://youtu.be/dQw4w9WgXcQ in formal academic language
-/summarize-youtube in pirate speak https://youtu.be/dQw4w9WgXcQ
-/summarize-youtube give me bullet points for https://youtu.be/dQw4w9WgXcQ
+/youtube-tools:summarize https://youtu.be/dQw4w9WgXcQ in bullet points
+/youtube-tools:summarize https://youtu.be/dQw4w9WgXcQ as if explaining to a 5 year old
+/youtube-tools:summarize https://youtu.be/dQw4w9WgXcQ in formal academic language
+/youtube-tools:summarize in pirate speak https://youtu.be/dQw4w9WgXcQ
+/youtube-tools:summarize give me bullet points for https://youtu.be/dQw4w9WgXcQ
 ```
 
 ## How It Works
