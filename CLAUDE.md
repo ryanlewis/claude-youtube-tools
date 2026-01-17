@@ -23,6 +23,11 @@ Test the transcript fetcher directly:
 bash scripts/fetch-transcript.sh "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 
+Validate the plugin manifest:
+```bash
+claude plugin validate .
+```
+
 ## Architecture
 
 ```
