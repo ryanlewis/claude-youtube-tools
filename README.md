@@ -14,10 +14,11 @@ A Claude Code plugin for working with YouTube videos - summarize content, downlo
 
 ### From My Plugin Marketplace
 
-Install from [my Claude Code plugin marketplace](https://github.com/ryanlewis/claude-plugins):
+Add [my Claude Code plugin marketplace](https://github.com/ryanlewis/claude-plugins), then install the plugin:
 
 ```
-/plugin install youtube-tools@github.com/ryanlewis/claude-plugins
+/plugin marketplace add ryanlewis/claude-plugins
+/plugin install youtube-tools@ryanlewis-plugins
 ```
 
 ### Local Development
